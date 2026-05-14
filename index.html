@@ -30,26 +30,29 @@
                 Use AI in Your Small Business<br>
                 <span class="text-indigo-400">Without Losing Sleep</span>
             </h1>
-            <p class="text-xl md:text-2xl text-slate-300 mb-10">
-                Get the free checklist every small business owner needs in 2027
+            <p class="text-xl md:text-2xl text-slate-300 mb-8">
+                Free AI Safety Self-Audit + Action Plan
+            </p>
+            <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
+                Takes 10 minutes. Discover your hidden risks and get a personalized score.
             </p>
             
-            <div class="max-w-md mx-auto bg-white rounded-2xl p-8 shadow-2xl">
-                <p class="text-slate-900 font-semibold mb-4">Download your free guide instantly:</p>
-                <p class="text-2xl font-bold text-slate-800 mb-6">"10 AI Risks That Could Cost Your Business Thousands"</p>
+            <div class="max-w-md mx-auto bg-white rounded-3xl p-8 shadow-2xl">
+                <p class="text-slate-900 font-semibold mb-4">Get your free self-audit instantly:</p>
+                <p class="text-2xl font-bold text-slate-800 mb-6">"AI Safety Self-Audit for Small Businesses"</p>
                 
-                <form id="leadForm" class="space-y-4">
-                    <input type="text" id="name" placeholder="Your Full Name" 
-                           class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500" required>
-                    <input type="email" id="email" placeholder="Business Email" 
-                           class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500" required>
+                <form id="leadForm" action="YOUR_N8N_WEBHOOK_URL_HERE" method="POST" class="space-y-4">
+                    <input type="text" name="name" placeholder="Your Full Name" 
+                           class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:border-indigo-500" required>
+                    <input type="email" name="email" placeholder="Business Email" 
+                           class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:border-indigo-500" required>
                     <button type="submit"
-                            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 rounded-xl text-lg transition">
-                        Get the Free Checklist Now
+                            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 rounded-2xl text-lg transition">
+                        Send Me the Free Self-Audit
                     </button>
                 </form>
                 
-                <p class="text-xs text-slate-500 mt-4">✓ Instant download • No spam • Your data is safe</p>
+                <p class="text-xs text-slate-500 mt-4">✓ Fillable PDF • Instant delivery • No spam</p>
             </div>
         </div>
     </section>
@@ -61,37 +64,6 @@
         </div>
     </div>
 
-    <!-- Benefits -->
-    <section class="py-16 bg-white">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Why Small Business Owners Are Taking Action Now</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto bg-indigo-100 rounded-2xl flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-shield-halved text-3xl text-indigo-600"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2">Avoid Costly Mistakes</h3>
-                    <p class="text-slate-600">Stop shadow AI, data leaks, and compliance nightmares before they happen.</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto bg-emerald-100 rounded-2xl flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-check-circle text-3xl text-emerald-600"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2">Use AI With Confidence</h3>
-                    <p class="text-slate-600">Practical governance that protects your business while you grow.</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto bg-amber-100 rounded-2xl flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-clock text-3xl text-amber-600"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2">Save Time & Money</h3>
-                    <p class="text-slate-600">Simple steps instead of expensive consultants or lawyers.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-12">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <p class="text-xl font-semibold text-white mb-2">Sleepr AI</p>
@@ -100,11 +72,5 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert("Thank you! Your checklist has been sent to your email. (Connect real form later)");
-        });
-    </script>
 </body>
 </html>
