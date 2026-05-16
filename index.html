@@ -45,11 +45,11 @@
                 Takes 10 minutes. Get your risk score + immediate action steps.
             </p>
             
-            <div class="max-w-md mx-auto bg-white rounded-3xl p-8 shadow-2xl">
+            <div class="max-w-md mx-auto bg-white rounded-3xl p-8 shadow-2xl" id="formContainer">
                 <p class="text-slate-900 font-semibold mb-4">Get your free self-audit instantly:</p>
                 <p class="text-2xl font-bold text-slate-800 mb-6">"AI Safety Self-Audit for Small Businesses"</p>
                 
-                <form id="leadForm" action="https://sleeprai.app.n8n.cloud/webhook/1edb9b30-636b-40e4-b701-0d486a2aafbe" method="POST" class="space-y-4">
+                <form id="leadForm" class="space-y-4">
                     <div class="grid grid-cols-2 gap-4">
                         <input type="text" name="first_name" placeholder="First Name" 
                                class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:border-indigo-500 text-gray-900">
@@ -62,12 +62,25 @@
                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:border-indigo-500 text-gray-900" required>
                     
                     <button type="submit"
+                            id="submitBtn"
                             class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 rounded-2xl text-lg transition">
                         Send Me the Free Self-Audit
                     </button>
                 </form>
                 
                 <p class="text-xs text-slate-500 mt-4">✓ Fillable PDF • Instant delivery • No spam</p>
+            </div>
+
+            <!-- Thank You Message (Hidden by default) -->
+            <div id="thankYou" class="hidden max-w-md mx-auto bg-white rounded-3xl p-10 shadow-2xl text-center">
+                <div class="text-5xl mb-4">✅</div>
+                <h2 class="text-3xl font-bold text-slate-800 mb-3">Thank You!</h2>
+                <p class="text-lg text-slate-600 mb-6">
+                    Your AI Safety Self-Audit has been sent to your email.
+                </p>
+                <p class="text-slate-600">
+                    Please check your inbox (and spam folder) shortly.
+                </p>
             </div>
         </div>
     </section>
@@ -87,5 +100,37 @@
         </div>
     </footer>
 
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const formContainer = document.getElementById('formContainer');
+            const thankYou = document.getElementById('thankYou');
+            
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('https://sleeprai.app.n8n.cloud/webhook/1edb9b30-636b-40e4-b701-0d486a2aafbe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                // Show thank you message
+                formContainer.classList.add('hidden');
+                thankYou.classList.remove('hidden');
+
+            } catch (error) {
+                alert("Something went wrong. Please try again or contact us directly.");
+                submitBtn.innerHTML = 'Send Me the Free Self-Audit';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
